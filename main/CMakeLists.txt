@@ -1,0 +1,18 @@
+idf_component_register(SRCS
+    "main.c"
+    "_1_logging/demo/_1_logging.c"
+    "_1_logging/demo/_2_memory_print.c"
+    "_1_logging/demo/_3_log_vars.c"
+    "_1_logging/exercise/_1_logging_ex.c"
+    "_1_logging/exercise/_2_memory_print_ex.c"
+    "_1_logging/exercise/_3_log_vars_ex.c"
+    "_1_logging/exercise/solutions/_1_logging_ex_solution.c"
+    "_1_logging/exercise/solutions/_2_memory_print_ex_solutions.c"
+    "_1_logging/exercise/solutions/_3_log_vars_ex_solution.c"
+    INCLUDE_DIRS
+    "."
+    "include"
+    "_1_logging/demo"
+    "_1_logging/exercise"
+    "_1_logging/exercise/solutions"
+)
