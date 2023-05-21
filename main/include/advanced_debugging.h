@@ -4,5 +4,5 @@
 #include "logging.h"
 #include "logging_ex.h"
 #include "solutions.h"
-
+#include "gdb_debug.h"
 #endif

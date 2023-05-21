@@ -9,10 +9,12 @@ idf_component_register(SRCS
     "_1_logging/exercise/solutions/_1_logging_ex_solution.c"
     "_1_logging/exercise/solutions/_2_memory_print_ex_solutions.c"
     "_1_logging/exercise/solutions/_3_log_vars_ex_solution.c"
+    "_2_openocd_gdb/demo/gdb_debug.c"
     INCLUDE_DIRS
     "."
     "include"
     "_1_logging/demo"
     "_1_logging/exercise"
     "_1_logging/exercise/solutions"
+    "_2_openocd_gdb/demo"
 )

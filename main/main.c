@@ -26,4 +26,7 @@ void app_main(void)
     // log_vars_demo();
     //  log_vars_demo_ex();
     // // log_vars_demo_ex_sol();
+
+    /******open ocd********/
+    gdb_debug();
 }
