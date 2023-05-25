@@ -9,7 +9,12 @@ idf_component_register(SRCS
     "_1_logging/exercise/solutions/_1_logging_ex_solution.c"
     "_1_logging/exercise/solutions/_2_memory_print_ex_solutions.c"
     "_1_logging/exercise/solutions/_3_log_vars_ex_solution.c"
-    "_2_openocd_gdb/demo/gdb_debug.c"
+    "_2_openocd_gdb/demo/_1_gdb_debug.c"
+    "_2_openocd_gdb/exercise/_1_gdb_debug_ex.c"
+    "_2_openocd_gdb/exercise/solutions/_1_gdb_debug_sol.c"
+    "_2_openocd_gdb/demo/_2_gdb_core_dump.c"
+    "_2_openocd_gdb/exercise/_1_gdb_core_dump_ex.c"
+    "_2_openocd_gdb/exercise/solutions/_1_gdb_core_dump_sol.c"
     INCLUDE_DIRS
     "."
     "include"
@@ -17,4 +22,6 @@ idf_component_register(SRCS
     "_1_logging/exercise"
     "_1_logging/exercise/solutions"
     "_2_openocd_gdb/demo"
+    "_2_openocd_gdb/exercise"
+    "_2_openocd_gdb/exercise/solutions"
 )

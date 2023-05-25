@@ -4,5 +4,6 @@
 #include "logging.h"
 #include "logging_ex.h"
 #include "solutions.h"
-#include "gdb_debug.h"
+#include "openocd_gdb.h"
+#include "open_ocd_gdb.h"
 #endif
