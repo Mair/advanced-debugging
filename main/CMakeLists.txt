@@ -18,6 +18,7 @@ idf_component_register(SRCS
     "_3_memory/demo/_1_memory_leaks.c"
     "_3_memory/exercise/_1_memory_leaks_ex.c"
     "_3_memory/exercise/solutions/_1_memory_leaks_sol.c"
+    "_3_memory/demo/_2_memory_trace.c"
     INCLUDE_DIRS
     "."
     "include"

@@ -10,6 +10,7 @@ static void fix_this_leaky_function(void);
 
 void memory_leaks_ex(void)
 {
+
     fix_this_leaky_function();
 }
 

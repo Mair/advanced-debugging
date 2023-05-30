@@ -44,5 +44,7 @@ void app_main(void)
     /******App trace and Segger*****/
     // memory_leaks();
     // memory_leaks_ex();
-    memory_leaks_sol();
+    // memory_leaks_sol();
+
+    memory_trace();
 }

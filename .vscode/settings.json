@@ -19,6 +19,8 @@
     "freertos.h": "c",
     "openocd_gdb.h": "c",
     "memory_ex.h": "c",
-    "stdio.h": "c"
+    "stdio.h": "c",
+    "esp_system.h": "c",
+    "esp_heap_task_info.h": "c"
   }
 }
