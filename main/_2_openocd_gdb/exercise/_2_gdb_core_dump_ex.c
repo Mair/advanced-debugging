@@ -8,6 +8,7 @@
  * In the menu config file we can push it out the serial line or we can store it onto flash
  * In this case we will store it into flash
  * We start by creating a custom partition table that has place for the core dump
+ * 1. create a file called partitions.csv in the project root with the following content
  *
  * #########################
  *  nvs,      data, nvs,           ,  0x6000
@@ -15,16 +16,31 @@
  *  factory,  app,  factory,       ,  1M
  *  coredump, data, coredump,      ,  64K
  * ########################
+ * 2. open the menuconfig and open the partitions table setting
+ * 3. set the partition table to a custom partition table
+ * 4. set the Custom partition CSV file to partitions.csv
+ * 5. flash and monitor the code below and notice it crashes
+ * 6. stop the monitor
+ * 7. run the following command
+ *  "python <idf path>/components/espcoredump/espcoredump.py -p COM35 info_corefile build/advaned-debugging.elf"
+ * 8. see if you can spot what caused the panic
+ * 9. run the following command
+ *  "python <idf path>/components/espcoredump/espcoredump.py -p COM35 dbg_corefile build/advaned-debugging.elf"
+ * 10. once gdb is loaded get the backtrace: bt
+ * 11. select the best frame to review: f <frame number>
+ * 12. enable tui: tui enable
+ * 13. inspect the variables
+ * 14. How could this error be prevented?
  *
+ *  ************** BONUS *********
+ * 1. Go to the menuconfig
+ * 2. In the search type panic
+ * 3. set the panic handler behavior  to GDBStub on panic
+ * 4. run the application so that is crashes again.
+ * 5. what happens
  *
  * ***********************
  */
-
-typedef struct fib_params_t
-{
-    int number_of_elements;
-    void (*callback)(int number);
-} fib_params_t;
 
 typedef struct linked_list
 {
@@ -35,33 +51,29 @@ typedef struct linked_list
 
 linked_list_t *linked_list;
 
-static void gdb_core_dump_task(void *params);
-static void append_linked_list(int fib_number);
-static void do_fibonacci(fib_params_t *fib_params);
 static void print_linked_list(void);
+static int generate_random(int fib_number);
+static void append_linked_list(int fib_number);
+static void do_fibonacci();
 
-void gdb_core_dump(void)
+void gdb_core_dump_ex(void)
 {
-    xTaskCreate(gdb_core_dump_task, "gdb_core_dump_task", 1024 * 5, NULL, 5, NULL);
-}
-
-static void gdb_core_dump_task(void *params)
-{
-    fib_params_t fib_params = {
-        .number_of_elements = 30,
-        .callback = append_linked_list};
-
-    do_fibonacci(&fib_params);
+    do_fibonacci();
     print_linked_list();
     vTaskDelete(NULL);
 }
 
-static int generate_random(int fib_number)
+static void do_fibonacci()
 {
-    uint32_t random = esp_random();
-    int short_random = random % 5;
-    int new_number = fib_number / short_random;
-    return new_number;
+    int n1 = 0, n2 = 1, n3;
+    for (int i = 0; i < 30; i++)
+    {
+        n3 = n1 + n2;
+        append_linked_list(n3);
+        n1 = n2;
+        n2 = n3;
+    }
+    fflush(NULL);
 }
 
 static void append_linked_list(int fib_number)
@@ -88,6 +100,14 @@ static void append_linked_list(int fib_number)
     current->random = generate_random(fib_number);
 }
 
+static int generate_random(int fib_number)
+{
+    uint32_t random = esp_random();
+    int short_random = random % 5;
+    int new_number = fib_number / short_random;
+    return new_number;
+}
+
 static void print_linked_list(void)
 {
     linked_list_t *current = linked_list;
@@ -95,19 +115,6 @@ static void print_linked_list(void)
     {
         printf(" %d:(%d)->", current->fib_number, current->random);
         current = current->next;
-    }
-    fflush(NULL);
-}
-
-static void do_fibonacci(fib_params_t *fib_params)
-{
-    int n1 = 0, n2 = 1, n3;
-    for (int i = 0; i < fib_params->number_of_elements; i++)
-    {
-        n3 = n1 + n2;
-        fib_params->callback(n3);
-        n1 = n2;
-        n2 = n3;
     }
     fflush(NULL);
 }

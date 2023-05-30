@@ -12,9 +12,13 @@
   "idf.portWin": "COM34",
   "idf.pythonBinPathWin": "c:\\esp\\tools\\python_env\\idf5.0_py3.8_env\\Scripts\\python.exe",
   "idf.toolsPathWin": "c:\\esp\\tools",
-  "cSpell.words": ["LOGD", "LOGV"],
+  "cSpell.words": ["LOGD", "LOGV", "segger"],
   "files.associations": {
     "advanced_debugging.h": "c",
-    "esp_debug_helpers.h": "c"
+    "esp_debug_helpers.h": "c",
+    "freertos.h": "c",
+    "openocd_gdb.h": "c",
+    "memory_ex.h": "c",
+    "stdio.h": "c"
   }
 }

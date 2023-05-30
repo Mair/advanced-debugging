@@ -13,8 +13,11 @@ idf_component_register(SRCS
     "_2_openocd_gdb/exercise/_1_gdb_debug_ex.c"
     "_2_openocd_gdb/exercise/solutions/_1_gdb_debug_sol.c"
     "_2_openocd_gdb/demo/_2_gdb_core_dump.c"
-    "_2_openocd_gdb/exercise/_1_gdb_core_dump_ex.c"
-    "_2_openocd_gdb/exercise/solutions/_1_gdb_core_dump_sol.c"
+    "_2_openocd_gdb/exercise/_2_gdb_core_dump_ex.c"
+    "_2_openocd_gdb/exercise/solutions/_2_gdb_core_dump_sol.c"
+    "_3_memory/demo/_1_memory_leaks.c"
+    "_3_memory/exercise/_1_memory_leaks_ex.c"
+    "_3_memory/exercise/solutions/_1_memory_leaks_sol.c"
     INCLUDE_DIRS
     "."
     "include"
@@ -24,4 +27,7 @@ idf_component_register(SRCS
     "_2_openocd_gdb/demo"
     "_2_openocd_gdb/exercise"
     "_2_openocd_gdb/exercise/solutions"
+    "_3_memory/demo"
+    "_3_memory/exercise"
+    "_3_memory/exercise/solutions"
 )

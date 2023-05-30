@@ -5,5 +5,8 @@
 #include "logging_ex.h"
 #include "solutions.h"
 #include "openocd_gdb.h"
-#include "open_ocd_gdb.h"
+#include "openocd_gdb_ex.h"
+#include "memory.h"
+#include "memory_ex.h"
+
 #endif

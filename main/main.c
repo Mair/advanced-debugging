@@ -27,7 +27,7 @@ void app_main(void)
     //  log_vars_demo_ex();
     // // log_vars_demo_ex_sol();
 
-    /*************************************************GDB******************************************/
+    /****************************GDB******************************************/
 
     /******open ocd********/
     // gdb_debug();
@@ -35,5 +35,14 @@ void app_main(void)
     // gdb_debug_sol();
 
     /******core dump******/
-    gdb_core_dump();
+    // gdb_core_dump();
+    // gdb_core_dump_ex();
+    // gdb_core_dump_sol();
+
+    /*************************Memory******************************************/
+
+    /******App trace and Segger*****/
+    // memory_leaks();
+    // memory_leaks_ex();
+    memory_leaks_sol();
 }
