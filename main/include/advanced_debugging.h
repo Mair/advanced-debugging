@@ -8,5 +8,6 @@
 #include "openocd_gdb_ex.h"
 #include "memory.h"
 #include "memory_ex.h"
+#include "trace.h"
 
 #endif

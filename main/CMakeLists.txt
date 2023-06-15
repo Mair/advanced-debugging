@@ -19,6 +19,13 @@ idf_component_register(SRCS
     "_3_memory/exercise/_1_memory_leaks_ex.c"
     "_3_memory/exercise/solutions/_1_memory_leaks_sol.c"
     "_3_memory/demo/_2_memory_trace.c"
+    "_3_memory/exercise/_2_memory_trace_ex.c"
+    "_3_memory/exercise/solutions/_2_memory_trace_sol.c"
+    "_3_memory/demo/_3_memory_poisoning.c"
+    "_3_memory/exercise/_3_memory_poisoning_ex"
+    "_3_memory/exercise/solutions/_3_memory_poisoning_sol"
+    "_4_trace/demo/_1_app_trase.c"
+    "_4_trace/demo/_2_segger_trace.c"
     INCLUDE_DIRS
     "."
     "include"
@@ -31,4 +38,5 @@ idf_component_register(SRCS
     "_3_memory/demo"
     "_3_memory/exercise"
     "_3_memory/exercise/solutions"
+    "_4_trace/demo"
 )

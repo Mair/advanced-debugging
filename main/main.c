@@ -41,10 +41,22 @@ void app_main(void)
 
     /*************************Memory******************************************/
 
-    /******App trace and Segger*****/
+    /******memory leaks *****/
     // memory_leaks();
     // memory_leaks_ex();
     // memory_leaks_sol();
 
-    memory_trace();
+    /******using trace to track memory leaks *****/
+    // memory_trace();
+    // memory_trace_ex();
+    // memory_trace_sol();
+
+    /****** memory corruption *****/
+    // memory_poisoning();
+    // memory_poisoning_ex();
+    // memory_poisoning_sol();
+
+    /*************************Tracing******************************************/
+    // app_trace();
+    segger_trace();
 }

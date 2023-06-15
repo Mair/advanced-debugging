@@ -25,7 +25,7 @@ void memory_print_ex(void)
 
     /***************
      * Task 2
-     * what else should we do in relation to the above?
+     * what else should we do in relation to the above memory malloc?
      ************/
 
     my_data_struct_t my_struct = {
