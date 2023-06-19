@@ -2,6 +2,7 @@
 #include <string.h>
 #include "esp_system.h"
 #include "esp_log.h"
+#include "esp_heap_caps.h"
 
 static const char *TAG = "MEM";
 

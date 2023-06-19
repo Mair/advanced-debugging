@@ -58,5 +58,5 @@ void app_main(void)
 
     /*************************Tracing******************************************/
     // app_trace();
-    segger_trace();
+    // segger_trace();
 }
