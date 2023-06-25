@@ -16,6 +16,12 @@ void memory_leaks_ex(void)
 
 static void fix_this_leaky_function(void)
 {
+    /***********
+     * Task 1
+     * run this code as is (without freeing memory) and make a note how much is being consumed
+     * then follow the rest of the tasks to see how much memory you can save
+     */
+
     uint32_t start_of_function = esp_get_free_heap_size();
     printf("start function %ld\n", start_of_function);
 
@@ -26,9 +32,12 @@ static void fix_this_leaky_function(void)
     char *json_str = cJSON_Print(json);
     // print memory here using ESP_LOGI
     printf("%s\n", json_str);
-    // clean up here (hint: you need to free 2 things. One you need to use cJSON_Delete)
-    /******************/
-    /******************/
+    /***********
+     * Task 1
+     * clean up here (hint: you need to free 2 things.
+     * tasks 1a. use cJSON_Delete to delete the json struct
+     * tasks 1b. free the string
+     */
 
     uint32_t end_of_function = esp_get_free_heap_size();
 

@@ -8,7 +8,7 @@ void app_main(void)
     /***************************LOGGING*********************************************************/
 
     /******logging********/
-    // logging_demo();
+    logging_demo();
     // logging_ex();
     // // logging_ex_sol();
 
@@ -24,7 +24,7 @@ void app_main(void)
 
     /******log vars********/
     // log_vars_demo();
-    //  log_vars_demo_ex();
+    // log_vars_demo_ex();
     // // log_vars_demo_ex_sol();
 
     /****************************GDB******************************************/
@@ -32,29 +32,29 @@ void app_main(void)
     /******open ocd********/
     // gdb_debug();
     // gdb_debug_ex();
-    // gdb_debug_sol();
+    // // gdb_debug_sol();
 
     /******core dump******/
     // gdb_core_dump();
     // gdb_core_dump_ex();
-    // gdb_core_dump_sol();
+    // // gdb_core_dump_sol();
 
     /*************************Memory******************************************/
 
     /******memory leaks *****/
     // memory_leaks();
     // memory_leaks_ex();
-    // memory_leaks_sol();
+    // // memory_leaks_sol();
 
     /******using trace to track memory leaks *****/
     // memory_trace();
     // memory_trace_ex();
-    // memory_trace_sol();
+    // // memory_trace_sol();
 
     /****** memory corruption *****/
     // memory_poisoning();
     // memory_poisoning_ex();
-    // memory_poisoning_sol();
+    // // memory_poisoning_sol();
 
     /*************************Tracing******************************************/
     // app_trace();

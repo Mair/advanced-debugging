@@ -8,6 +8,12 @@
 #include "freertos/task.h"
 #include "esp_heap_trace.h"
 
+/*********************************
+ * menuconfig: Component config->Heap memory degugging
+ * choose corruption detection level
+ * choose the heap tracing stack depth
+ */
+
 char *buffer;
 char *buffer2;
 

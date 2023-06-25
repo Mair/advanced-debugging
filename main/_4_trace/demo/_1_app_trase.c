@@ -16,7 +16,9 @@
  * 3. telnet into openocd (telnet can be installed under windows with add / remove features):
  *   telnet localhost 4444
  * 4. esp apptrace start file://apptrace.log 1 -1 -1 0 0
- * 5. (optional) if running esp_log_set_vprintf then use
+ * 5. (optional) if running esp_log_set_vprintf then use:
+ * $IDF_PATH/tools/esp_app_trace/logtrace_proc.py /path/to/trace/file /path/to/program/elf/file
+ *  python {{IDF_PATH}}/tools/esp_app_trace/logtrace_proc.py apptrace_ESP_log.log build/advaned-debugging.elf
  */
 
 #define TAG "APP TRACE"
@@ -83,8 +85,6 @@ static void fast_loop_with_app_trace_write(void)
     int count = 0;
     char log_text[50];
 
-    // esp_log_set_vprintf(esp_apptrace_vprintf);
-
     while (seconds_1_from_now > esp_timer_get_time())
     {
         sprintf(log_text, "current count is: %d\n", count);
@@ -93,13 +93,10 @@ static void fast_loop_with_app_trace_write(void)
         {
             ESP_LOGE("TRACE", "Failed to write data to host [0x%x] (%s)", res, esp_err_to_name(res));
         }
-        // ESP_LOGI("TAG", "count %d", count);
-        // printf("fast loop count: %d\n", count);
         if (count++ % 500 == 0)
             esp_apptrace_flush(ESP_APPTRACE_DEST_JTAG, 1000);
     }
     esp_apptrace_flush(ESP_APPTRACE_DEST_JTAG, ESP_APPTRACE_TMO_INFINITE);
-    // esp_log_set_vprintf(vprintf);
     printf("fast loop with trace count: %d\n", count);
 }
 
@@ -115,6 +112,7 @@ static void fast_loop_with_app_trace_ESP_LOG(void)
     int count = 0;
     char log_text[50];
 
+    // override the log output
     esp_log_set_vprintf(esp_apptrace_vprintf);
 
     while (seconds_1_from_now > esp_timer_get_time())
@@ -124,7 +122,9 @@ static void fast_loop_with_app_trace_ESP_LOG(void)
         if (count++ % 500 == 0)
             esp_apptrace_flush(ESP_APPTRACE_DEST_JTAG, 1000);
     }
+    // dont forget to flush
     esp_apptrace_flush(ESP_APPTRACE_DEST_JTAG, ESP_APPTRACE_TMO_INFINITE);
+    // set the log output back to default (UART)
     esp_log_set_vprintf(vprintf);
     printf("fast loop with trace count: %d\n", count);
 }

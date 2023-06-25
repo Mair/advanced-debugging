@@ -4,6 +4,12 @@
 #include "esp_log.h"
 #include "esp_heap_trace.h"
 
+/*********************************
+ * menuconfig: Component config->Heap memory degugging
+ * choose corruption detection level
+ * choose the heap tracing stack depth
+ */
+
 static const char *TAG = "MEM TRACE";
 #define NUM_RECORDS 1000
 static heap_trace_record_t trace_record[NUM_RECORDS]; // This buffer must be in internal RAM

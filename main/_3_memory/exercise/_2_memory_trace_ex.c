@@ -41,7 +41,14 @@ void memory_trace_ex(void)
 static void fix_this_leaky_function(void)
 {
     /***********
-+-     * Task 5
+     * Task 5
+     * run this code as is (without freeing memory) and make a note of the output
+     * then follow the rest of the tasks including memory cleanup
+     *  to see how much memory you can save
+     */
+
+    /***********
+     * Task 6
      * Start the heap dump
      */
     cJSON *json = cJSON_CreateObject();
@@ -52,13 +59,17 @@ static void fix_this_leaky_function(void)
 
     //  clean up here
     /******************/
-    cJSON_Delete(json);
+    // use cJSON_Delete() to delete the json structure
+    // cJSON_Delete(json);
     ESP_LOGI(TAG, "after cJSON_Delete(json) %d", heap_caps_get_free_size(MALLOC_CAP_8BIT));
-    free(json_str);
+    // now free the string
+    // free(json_str)
+    ESP_LOGI(TAG, "after freeing json_str %d", heap_caps_get_free_size(MALLOC_CAP_8BIT));
     /******************/
 
     /***********
      * Task 6
      * end the heap dump
+     * Is the rest of the memory something we can or should control?
      */
 }
