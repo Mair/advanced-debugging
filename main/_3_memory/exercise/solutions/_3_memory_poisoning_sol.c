@@ -11,7 +11,7 @@
 /*****************
  * Task 1
  * Ensure the menuconfig
- * * Heap memory debugging -> Heap cooruption detection is set to "light impact"
+ * * Heap memory debugging -> Heap corruption detection is set to "light impact"
  * * Heap memory debugging -> tracing stack depth is set to 10
  */
 

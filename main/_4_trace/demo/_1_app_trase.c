@@ -15,7 +15,7 @@
  *  idf.py openocd
  * 3. telnet into openocd (telnet can be installed under windows with add / remove features):
  *   telnet localhost 4444
- * 4. esp apptrace start file://apptrace.log 1 -1 -1 0 0
+ * 4. esp apptrace start file://apptrace1.log 1 -1 -1 0 0
  * 5. (optional) if running esp_log_set_vprintf then use:
  * $IDF_PATH/tools/esp_app_trace/logtrace_proc.py /path/to/trace/file /path/to/program/elf/file
  *  python {{IDF_PATH}}/tools/esp_app_trace/logtrace_proc.py apptrace_ESP_log.log build/advaned-debugging.elf
@@ -51,9 +51,9 @@ static void app_trace_task(void *params)
 static void fast_loop(void)
 {
     int64_t start_time = esp_timer_get_time();
-    int64_t seconds_1_from_now = start_time + TWENTY_MILI_SECS;
+    int64_t time2_from_now = start_time + TWENTY_MILI_SECS;
     int count = 0;
-    while (seconds_1_from_now > esp_timer_get_time())
+    while (time2_from_now > esp_timer_get_time())
     {
         count++;
     }
@@ -119,7 +119,7 @@ static void fast_loop_with_app_trace_ESP_LOG(void)
     {
         ESP_LOGI("TAG", "count %d", count);
 
-        if (count++ % 500 == 0)
+        if (count++ % 100 == 0)
             esp_apptrace_flush(ESP_APPTRACE_DEST_JTAG, 1000);
     }
     // dont forget to flush

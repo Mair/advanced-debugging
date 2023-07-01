@@ -34,7 +34,7 @@ void memory_print_ex_sol(void)
     my_data_struct_t my_struct = {
         .an_int = 0xDEADBEEF,
         .a_char = 'x',
-        .a_char = "my string"};
+        .a_str = "my string"};
 
     /***************
      * Task 3
